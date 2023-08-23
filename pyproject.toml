@@ -42,8 +42,30 @@ dependencies = [
 ] 
 
 [project.optional-dependencies]
-dev = [
+develop = [
+    # run
+    "matplotlib>=3",
+    "colorama",
+    "joblib",
     
+    # test
+    "pytest>=7.3.0",
+    "pytest-randomly",
+    "pytest-xdist",
+    
+    # code quality
+    "flake8",
+    "isort,
+]
+docs = [
+    "sphinx",
+    "nbconvert",
+    "jupyter_client",
+    "ipykernel",
+    "matplotlib",
+    "nbformat",
+    "numpydoc",
+    "pandas-datareader",
 ]
 
 [project.urls]
