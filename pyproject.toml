@@ -55,7 +55,7 @@ develop = [
     
     # code quality
     "flake8",
-    "isort,
+    "isort",
 ]
 docs = [
     "sphinx",
