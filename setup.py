@@ -45,13 +45,6 @@ except ImportError:
 ###############################################################################
 # Key Values that Change Each Release
 ###############################################################################
-# These are strictly installation requirements. Builds requirements are
-# managed in pyproject.toml
-INSTALL_REQUIRES = []
-with open("requirements.txt", encoding="utf-8") as req:
-    for line in req.readlines():
-        INSTALL_REQUIRES.append(line.split("#")[0].strip())
-
 DEVELOP_REQUIRES = []
 with open("requirements-dev.txt", encoding="utf-8") as req:
     for line in req.readlines():
@@ -62,16 +55,6 @@ CYTHON_MIN_VER = "0.29.26"  # released 2020
 EXTRAS_REQUIRE = {
     "build": ["cython>=" + CYTHON_MIN_VER],
     "develop": ["cython>=" + CYTHON_MIN_VER] + DEVELOP_REQUIRES,
-    "docs": [
-        "sphinx",
-        "nbconvert",
-        "jupyter_client",
-        "ipykernel",
-        "matplotlib",
-        "nbformat",
-        "numpydoc",
-        "pandas-datareader",
-    ],
 }
 
 ###############################################################################
@@ -355,7 +338,6 @@ setup(
     cmdclass=cmdclass,
     package_data=package_data,
     distclass=BinaryDistribution,
-    install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRE,
     zip_safe=False,
 )
