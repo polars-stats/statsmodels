@@ -42,5 +42,8 @@ Homepage = "https://www.statsmodels.org/"
 "Documentation" = "https://www.statsmodels.org/stable/index.html"
 "Source Code" = "https://github.com/statsmodels/statsmodels"
 
+[tool.setuptools.packages.find]
+include = ["LICENSE.txt", "setup.cfg"]
+
 [tool.setuptools_scm]
 write_to = "statsmodels/_version.py"
