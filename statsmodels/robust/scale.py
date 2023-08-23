@@ -11,8 +11,8 @@ R Venables, B Ripley. 'Modern Applied Statistics in S'
 C Croux, PJ Rousseeuw, 'Time-efficient algorithms for two highly robust
 estimators of scale' Computational statistics. Physica, Heidelberg, 1992.
 """
-import numpy as np
-from scipy.stats import norm as Gaussian
+import jax.numpy as np
+from jax.scipy.stats import norm
 
 from statsmodels.tools import tools
 from statsmodels.tools.validation import array_like, float_like
@@ -21,7 +21,7 @@ from . import norms
 from ._qn import _qn
 
 
-def mad(a, c=Gaussian.ppf(3 / 4.0), axis=0, center=np.median):
+def mad(a, c=norm.ppf(3 / 4.0), axis=0, center=np.median):
     """
     The Median Absolute Deviation along given axis of an array
 
