@@ -45,17 +45,7 @@ except ImportError:
 ###############################################################################
 # Key Values that Change Each Release
 ###############################################################################
-DEVELOP_REQUIRES = []
-with open("requirements-dev.txt", encoding="utf-8") as req:
-    for line in req.readlines():
-        DEVELOP_REQUIRES.append(line.split("#")[0].strip())
-
 CYTHON_MIN_VER = "0.29.26"  # released 2020
-
-EXTRAS_REQUIRE = {
-    "build": ["cython>=" + CYTHON_MIN_VER],
-    "develop": ["cython>=" + CYTHON_MIN_VER] + DEVELOP_REQUIRES,
-}
 
 ###############################################################################
 # Values that rarely change
@@ -338,7 +328,6 @@ setup(
     cmdclass=cmdclass,
     package_data=package_data,
     distclass=BinaryDistribution,
-    extras_require=EXTRAS_REQUIRE,
     zip_safe=False,
 )
 
