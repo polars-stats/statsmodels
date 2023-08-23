@@ -77,39 +77,6 @@ EXTRAS_REQUIRE = {
 ###############################################################################
 # Values that rarely change
 ###############################################################################
-DISTNAME = "statsmodels"
-DESCRIPTION = "Statistical computations and models for Python"
-README = SETUP_DIR.joinpath("README.rst").read_text()
-LONG_DESCRIPTION = README
-MAINTAINER = "statsmodels Developers"
-MAINTAINER_EMAIL = "pystatsmodels@googlegroups.com"
-URL = "https://www.statsmodels.org/"
-LICENSE = "BSD License"
-DOWNLOAD_URL = ""
-PROJECT_URLS = {
-    "Bug Tracker": "https://github.com/statsmodels/statsmodels/issues",
-    "Documentation": "https://www.statsmodels.org/stable/index.html",
-    "Source Code": "https://github.com/statsmodels/statsmodels",
-}
-
-CLASSIFIERS = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Programming Language :: Cython",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Operating System :: OS Independent",
-    "Intended Audience :: End Users/Desktop",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "Natural Language :: English",
-    "License :: OSI Approved :: BSD License",
-    "Topic :: Office/Business :: Financial",
-    "Topic :: Scientific/Engineering",
-]
-
-FILES_TO_INCLUDE_IN_PACKAGE = ["LICENSE.txt", "setup.cfg"]
 
 FILES_COPIED_TO_PACKAGE = []
 for filename in FILES_TO_INCLUDE_IN_PACKAGE:
@@ -384,27 +351,13 @@ class BinaryDistribution(Distribution):
 
 
 setup(
-    name=DISTNAME,
-    maintainer=MAINTAINER,
     ext_modules=extensions,
-    maintainer_email=MAINTAINER_EMAIL,
-    description=DESCRIPTION,
-    license=LICENSE,
-    url=URL,
-    download_url=DOWNLOAD_URL,
-    project_urls=PROJECT_URLS,
-    long_description=LONG_DESCRIPTION,
-    classifiers=CLASSIFIERS,
-    platforms="any",
     cmdclass=cmdclass,
-    packages=find_packages(),
     package_data=package_data,
     distclass=BinaryDistribution,
-    include_package_data=False,  # True will install all files in repo
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRE,
     zip_safe=False,
-    python_requires=">=3.8",
 )
 
 # Clean-up copied files
