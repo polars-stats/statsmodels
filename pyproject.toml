@@ -2,7 +2,7 @@
 requires = [
     "setuptools",
     "cython>=0.29.26,<3",  # Sync with CYTHON_MIN_VER in setup
-    "numpy>=1.25.0
+    "numpy>=1.25.0",
     "scipy>=1.11",
     "setuptools_scm[toml]~=7.0.0"
 ]
@@ -15,7 +15,7 @@ readme = "README.rst"
 maintainers = [
     { name = "statsmodels Developers", email = "pystatsmodels@googlegroups.com" }
 ]
-license = { text = "BSD License" }
+license = { file = "LICENSE.txt" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
@@ -79,3 +79,9 @@ include = ["LICENSE.txt", "setup.cfg"]
 
 [tool.setuptools_scm]
 write_to = "statsmodels/_version.py"
+
+[tool.pytest.ini_options]
+minversion = 7
+testpaths = "statsmodels"
+xfail_strict = true
+addopts = "--strict"
