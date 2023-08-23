@@ -34,9 +34,11 @@ classifiers = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "jax[cpu]",
     "numpy>=1.25.0",
     "scipy>=1.11",
     "pandas>=2.0",
+    "polars",
     "patsy>=0.5.2",  # released January 2018
     "packaging>=21.3"  # released Nov 2021
 ] 
