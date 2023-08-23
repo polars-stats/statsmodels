@@ -1,12 +1,9 @@
 [build-system]
 requires = [
-    "setuptools>=59.2.0",
+    "setuptools",
     "cython>=0.29.26,<3",  # Sync with CYTHON_MIN_VER in setup
-    # Workaround for oldest supported numpy using 1.21.6, but SciPy 1.9.2+ requiring 1.22.3+
-    "oldest-supported-numpy; python_version!='3.10' or platform_system!='Windows' or platform_python_implementation=='PyPy'",
-    "numpy>=1.22.3; python_version=='3.10' and platform_system=='Windows' and platform_python_implementation != 'PyPy'",
-    "numpy; python_version>='3.12'",
-    "scipy>=1.4",
+    "numpy>=1.25.0
+    "scipy>=1.11",
     "setuptools_scm[toml]~=7.0.0"
 ]
 build-backend = "setuptools.build_meta"
@@ -35,7 +32,19 @@ classifiers = [
     "Topic :: Office/Business :: Financial",
     "Topic :: Scientific/Engineering",
 ]
- requires-python = ">=3.10"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.25.0",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "patsy>=0.5.2",  # released January 2018
+    "packaging>=21.3"  # released Nov 2021
+] 
+
+[project.optional-dependencies]
+dev = [
+    
+]
 
 [project.urls]
 Homepage = "https://www.statsmodels.org/"
